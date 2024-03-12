@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
+//use DB;
 
 class User extends Controller
 {
@@ -12,10 +13,10 @@ class User extends Controller
 
     public function index(){
 
-       $result= DB::table('users')->join('employee','employee.employee_id','=','users.id')->select('name','email','employee_name')->get();
+       $users = DB::table('users')->find(3);
 
         echo "<pre>";
-        print_r($result);
+        print_r($users);
         exit;
 
        
